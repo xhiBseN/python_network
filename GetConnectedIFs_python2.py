@@ -40,6 +40,7 @@ for device in devices:
 	        for speed in shint:
 	                if speed.find('duplex')>-1:
 	                        inf.append(speed)
+                            break
 	        config = conf.split('\n',4)[4]
 	        inf.append(config)
 	        ifs.append(inf)
