@@ -50,12 +50,12 @@ for sr in bigrulebook:
     for i, (network,zone) in enumerate(zones.items()):
         if sr['Src'] in IPSet([network]):
             srczone = zone
+            # Put Intrazone Traffic away
+            if sr['Dst'] in IPSet([network]):
+                intra.update({sr : zone})
             break
     # Check for Destionation zone
     for i, (network,zone) in enumerate(zones.items()):
         if sr['Dst'] in IPSet([network]):
             dstzone = zone
             break
-    # Put Intrazone Traffic away
-    if srczone == dstzone:
-        intra.update({sr : zone})
