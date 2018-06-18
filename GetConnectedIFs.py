@@ -41,7 +41,7 @@ for device in devices:
     except (SSHException):
         print('SSH Issue: ' + device['ip'])
         continue
-    except Exception as unknown_error
+    except Exception as unknown_error:
         print('idk what when wrong: ' + str(unknown_error))
         continue
     net_connect.find_prompt()
