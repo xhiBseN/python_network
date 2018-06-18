@@ -32,17 +32,17 @@ for bigrule in rulelist[1:]:
     # Comment
     brcmt = brsplit[11]
     if brsplit[2].strip('\"') == 'True':
-        if brsplit[9].strip('\"') == 'Permit':
-            for src in brsrcs:
-                for dst in brdsts:
-                    for port in brports:
-                        bigrule = { 'IF' : brsplit[0],
-                                    'RuleNo' : brsplit[1],
-                                    'Src' : IPNetwork(src),
-                                    'Dst': IPNetwork(dst),
-                                    'Port' : port,
-                                    'Comment' : brcmt }
-                        bigrulebook.append(bigrule)
+        for src in brsrcs:
+            for dst in brdsts:
+                for port in brports:
+                    bigrule = { 'IF' : brsplit[0],
+                                'RuleNo' : brsplit[1],
+                                'Src' : IPNetwork(src),
+                                'Dst': IPNetwork(dst),
+                                'Port' : port,
+                                'Action' : brsplit[9].strip('\"'),
+                                'Comment' : brcmt }
+                    bigrulebook.append(bigrule)
 shadowed, overlapped, allowed, denied = [], [], [], []
 intra = {}
 for sr in bigrulebook:
