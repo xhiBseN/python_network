@@ -58,4 +58,4 @@ for sr in bigrulebook:
             break
     # Put Intrazone Traffic away
     if srczone == dstzone:
-        intra.update({zone : sr})
+        intra.update({sr : zone})
