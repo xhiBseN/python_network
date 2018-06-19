@@ -48,6 +48,7 @@ for bigrule in rulelist[1:]:
 					# Create List of all Interfaces
                     intdict = { brsplit[0] : 'Interface', }
                     br.append(bigrule)
+
 # Create Rulebook for each Interface
 for z,i in enumerate(intdict.items()):
     rbook = { z : [] }
